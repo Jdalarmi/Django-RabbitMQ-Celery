@@ -3,11 +3,12 @@ from django.db import transaction
 from rest_framework.decorators import api_view
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
-
+from api.tasks import process_emprestimo_message
 from core import settings
 from .serializers import EmprestimoSerializer
 import json
 import pika
+from .models import StatusEmprestimo
 
 @swagger_auto_schema(method='post', request_body=EmprestimoSerializer)
 @api_view(['POST'])
@@ -42,7 +43,19 @@ def register(request):
             routing_key='proposta',
             body=json_parameters
         )
+
+        value_for_status = process_emprestimo_message(json_parameters)
+        if value_for_status > 1000:
+            StatusEmprestimo.objects.create(
+                status='APROVADO'
+            )
+        else:
+            StatusEmprestimo.objects.create(
+                status='NEGADO'
+            )
+
         connection.close()
         return Response('Dados salvos com sucesso e Enviados para fila proposta', status.HTTP_200_OK)
     else:
         return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+    

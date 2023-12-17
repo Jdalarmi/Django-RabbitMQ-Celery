@@ -11,5 +11,5 @@ class StatusEmprestimo(models.Model):
         ('1', 'Aprovado'),
         ('2', 'Negado')
     )
-    emprestimo = models.ForeignKey(Emprestimo, on_delete=models.CASCADE)
+    # emprestimo = models.ForeignKey(Emprestimo, on_delete=models.CASCADE)
     status = models.CharField(max_length=1, choices=status_choices)
