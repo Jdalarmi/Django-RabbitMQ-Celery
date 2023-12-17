@@ -1,7 +1,6 @@
 
 from pathlib import Path
 import os 
-from celery import Celery
 from dotenv import load_dotenv
 load_dotenv()
 username = os.getenv("RABBITMQ_USERNAME", "guest")
@@ -116,15 +115,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings' )
 
-celery_app = Celery('api')
-
-celery_app.config_from_object('django.conf:settings', namespace='CELERY')
-
-celery_app.autodiscover_tasks()
-
-
-CELERY_BROKER_URL = f"amqp://{username}:{password}@localhost:5672//"
+CELERY_BROKER_URL = 'pyamqp://localhost'
 CELERY_RESULT_BACKEND = 'rpc://'
+
+RABBITMQ_HOST = 'localhost'
+RABBITMQ_PORT = 5672
+RABBITMQ_USER = username
+RABBITMQ_PASSWORD = password
+
+
 
