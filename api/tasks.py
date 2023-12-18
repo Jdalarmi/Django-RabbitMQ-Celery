@@ -1,22 +1,18 @@
-# tasks.py
+from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from .models import Emprestimo
 
-@shared_task(
-        bind=True,
-        max_retries=5,
-        default_retry_delay=30)
+@shared_task
+def add(proposta_id):
+    print('_________INICIANDO ANALISE__________')
+    proposta = Emprestimo.objects.get(pk=proposta_id)
+    if proposta.valor_emprestimo > 1000:
+        proposta.status = "APROVADO"
+    else:
+        proposta.status = "NEGADO"
 
-def avaliar_propostas():
-    print("Iniciando a avaliação de propostas...")
+    proposta.save()
+
+    print(f"recebido a task do emprestimo ID{proposta.id}")
     
-    propostas = Emprestimo.objects.filter(status='Aguardando')
-    aprovacao = True
-    
-    for proposta in propostas:
-        print(f"Avaliando proposta ID {proposta.id}...")
-        proposta.status = 'Aprovada' if aprovacao else 'Negada'
-        proposta.save()
-        aprovacao = not aprovacao
-    
-    print("Concluída a avaliação de propostas.")
+    return proposta.id

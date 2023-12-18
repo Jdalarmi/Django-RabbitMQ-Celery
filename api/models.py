@@ -8,9 +8,3 @@ class Emprestimo(models.Model):
     valor_emprestimo = models.FloatField(null=True)
     status = models.CharField(max_length=10, default='Aguardando') 
     
-
-
-class CampoProposta(models.Model):
-    proposta = models.ForeignKey(Emprestimo, on_delete=models.CASCADE)
-    nome = models.CharField(max_length=255)
-    valor = models.CharField(max_length=255)
