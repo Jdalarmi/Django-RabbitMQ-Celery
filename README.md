@@ -28,7 +28,8 @@ Esse projeto tem como funcionalidade fazer API após receber os dados da propost
 <img align="left" alt="celery" height="60" width="100" src="https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=Docker&logoColor=white">
 
 </div>
-<br/><br/>
+<br/>
+<br/>
 
 ## ⏳ Inicialização
 
@@ -39,9 +40,7 @@ Esse projeto tem como funcionalidade fazer API após receber os dados da propost
 
 ## 🔮 Implementações futuras
 
-.....
-
-
+- Fazer a pagina com HTML, CSS e fazer chamada com JavaScript na API. 
 
 <br/>
 
