@@ -9,7 +9,8 @@ Esse projeto tem como funcionalidade fazer API após receber os dados da propost
 
 ## 🛠️ Funcionalidades
 
-- Armazenar os dados no banco de dados
+- Armazenar os dados no banco de dados.
+- Mandar proposta para fila RabbitMQ
 - Definir status da proposta com celery.
 
 
@@ -29,11 +30,13 @@ Esse projeto tem como funcionalidade fazer API após receber os dados da propost
 
 </div>
 <br/>
+
+
 <br/>
 
 ## ⏳ Inicialização
 
-....
+Irei implementar o passo a passo ainda....
 
 
 <br/>
