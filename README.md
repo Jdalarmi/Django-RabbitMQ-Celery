@@ -3,7 +3,7 @@
 
 ## 📖  Descrição
 
-Esse projeto tem como funcionalidade fazer API após receber os dados da proposta salvar no bando de dados e encaminhar a proposta para uma fila do RabbitMQ onde celery coleta e avalia a proposta atribuindo "APROVADO" ou "NEGADO"
+API recebe os dados da proposta salva no banco de dados e encaminha a proposta para uma fila do RabbitMQ onde celery coleta e avalia a proposta atribuindo "APROVADO" ou "NEGADO"
 
 <br/>
 
