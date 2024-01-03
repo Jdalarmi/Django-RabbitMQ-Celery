@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preenchimento da Proposta</title>
+    <!-- Inclua aqui os links para os arquivos CSS do seu framework escolhido, por exemplo, React, Vue, Angular -->
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+
+    <h1>Preenchimento da Proposta</h1>
+
+    <form id="propostaForm">
+        <label for="nomeCompleto">Nome Completo:</label>
+        <input type="text" id="nomeCompleto" name="nomeCompleto" required><br>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required><br>
+
+        <label for="valorEmprestimo">Valor do Empréstimo Pretendido:</label>
+        <input type="text" id="valorEmprestimo" name="valorEmprestimo" required><br>
+
+        <button type="button" onclick="enviarProposta()">Enviar Proposta</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    function enviarProposta() {
+
+        var nomeCompleto = document.getElementById('nomeCompleto').value;
+        var cpf = document.getElementById('cpf').value;
+        var endereco = document.getElementById('endereco').value;
+        var valorEmprestimo = document.getElementById('valorEmprestimo').value;
+
+        
+        var dadosProposta = {
+            nomeCompleto: nomeCompleto,
+            cpf: cpf,
+            endereco: endereco,
+            valorEmprestimo: valorEmprestimo
+          
+        };
+
+        axios.post('URL_DA_SUA_API', dadosProposta)
+            .then(function (response) {
+                // Lide com a resposta da API aqui
+                console.log(response.data);
+                alert('Proposta enviada com sucesso!');
+            })
+            .catch(function (error) {
+                // Lide com erros de requisição aqui
+                console.error(error);
+                alert('Erro ao enviar proposta. Verifique os dados e tente novamente.');
+            });
+    }
+</script>
+</body>
+</html>
