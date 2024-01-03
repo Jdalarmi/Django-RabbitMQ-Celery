@@ -6,6 +6,7 @@ from .models import Emprestimo
 def add(proposta_id):
     print('_________INICIANDO ANALISE__________')
     proposta = Emprestimo.objects.get(pk=proposta_id)
+
     if proposta.valor_emprestimo > 1000:
         proposta.status = "APROVADO"
     else:

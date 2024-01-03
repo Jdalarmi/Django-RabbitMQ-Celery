@@ -5,4 +5,4 @@ class EmprestimoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Emprestimo
-        fields = '__all__'
+        exclude= ['status']

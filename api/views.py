@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from rest_framework.response import Response 
 from rest_framework import viewsets
 from .models import Emprestimo
@@ -13,8 +12,6 @@ class PropostaViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         proposta = serializer.save()
-    
-    
         add.delay(proposta.id)
         
-        return Response({'status': 'Proposta criada com sucesso. Avaliação em andamento.'}, status=status.HTTP_201_CREATED)
+        return Response({'message': 'Proposta criada com sucesso. Avaliação em andamento.'}, status=status.HTTP_201_CREATED)

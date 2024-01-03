@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-4le6w7+#lfx)b2&48vg56o#n25*b3y4+p2n*%!qr4@kud46@!%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'drf_yasg',
-    'celery'
+    'celery',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -39,6 +40,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -118,5 +121,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CELERY_BROKER_URL = 'pyamqp://guest:guest@localhost:5672//'
 CELERY_RESULT_BACKEND = 'rpc://'
 
-
-
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500", 
+]
