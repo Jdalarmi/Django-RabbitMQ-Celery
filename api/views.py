@@ -12,11 +12,11 @@ def random_letters(k=10):
         string.ascii_letters + string.digits,
         k=k
     )
-random_string = ''.join(random_letters())
 
 @swagger_auto_schema(method='post', request_body=EmprestimoSerializer)
 @api_view(['POST'])
 def acess_proposta(request):
+    random_string = ''.join(random_letters())
     data = Protocol.objects.create(
         protocol = random_string
     )
