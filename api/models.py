@@ -8,3 +8,7 @@ class Emprestimo(models.Model):
     valor_emprestimo = models.FloatField(null=True)
     status = models.CharField(max_length=10, default='Aguardando') 
     
+
+class Protocol(models.Model):
+    protocol = models.CharField(max_length=10, null=False)
+    status = models.CharField(max_length=10, default='Aguardando')
