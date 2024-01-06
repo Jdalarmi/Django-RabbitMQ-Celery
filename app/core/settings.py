@@ -122,5 +122,5 @@ CELERY_BROKER_URL = 'pyamqp://guest:guest@localhost:5672//'
 CELERY_RESULT_BACKEND = 'rpc://'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:5500", 
+    "http://127.0.0.1:5501", 
 ]
