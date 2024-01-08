@@ -63,7 +63,7 @@ API recebe os dados da proposta salva no banco de dados e encaminha a proposta p
 
 ![Alt text](ajuda2.png)
 
-- Nota: caso sua porta esteja em um faixa de IP diferente será necessario configurar na pasta core/seetings : CORS_ALLOWED_ORIGINS = [
+- Nota: caso sua porta esteja em um faixa de IP diferente será necessario configurar na pasta core/setings : CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5501", 
 ], com porta que esta no seu navegador.
 
