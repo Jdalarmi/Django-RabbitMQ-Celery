@@ -38,7 +38,7 @@ API recebe os dados da proposta salva no banco de dados e encaminha a proposta p
 
 ## ⏳ Inicialização
 
-- Para garantir uma experiência de instalação sem complicações, a aplicação está totalmente contida em um ambiente Docker. Siga estas etapas simples:
+- Para garantir uma experiência de instalação sem complicações, a aplicação está totalmente configurada em um ambiente Docker. Siga estas etapas simples:
 
 - Passo 1: Clone o repositório usando o comando: ``` git clone https://github.com/Jdalarmi/Emprestimo_With_Celery_RabbitMQ.git```
 
